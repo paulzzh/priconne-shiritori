@@ -277,27 +277,24 @@ function get_possible_words(phrase)
         // COLLECT POSSIBLE PHRASES FROM WORD
         for (let i = 0 ; i < word_data.get(word_list_keys.futsuyomi).length ; i++)
         {
-            let first_character = word_data.get(word_list_keys.futsuyomi)[i][0];
-            if (end_character === first_character ||
-                wanakana.toKatakana(end_character) === first_character)
+            let first_character = word_data.get(word_list_keys.futsuyomi)[i];
+            if (end_character === get_first_character(first_character))
             {
                 possible_words.push({ [word_data.get(word_list_keys.futsuyomi)[i]] : word_list_keys.futsuyomi });
             }
         }
         for (let i = 0 ; i < word_data.get(word_list_keys.urayomi).length ; i++)
         {
-            let first_character = word_data.get(word_list_keys.urayomi)[i][0];
-            if (end_character === first_character ||
-                wanakana.toKatakana(end_character) === first_character)
+            let first_character = word_data.get(word_list_keys.urayomi)[i];
+            if (end_character === get_first_character(first_character))
             {
                 possible_words.push({ [word_data.get(word_list_keys.urayomi)[i]] : word_list_keys.urayomi });
             }
         }
         for (let i = 0 ; i < word_data.get(word_list_keys.priconneyomi).length ; i++)
         {
-            let first_character = word_data.get(word_list_keys.priconneyomi)[i][0];
-            if (end_character === first_character ||
-                wanakana.toKatakana(end_character) === first_character)
+            let first_character = word_data.get(word_list_keys.priconneyomi)[i];
+            if (end_character === get_first_character(first_character))
             {
                 possible_words.push({ [word_data.get(word_list_keys.priconneyomi)[i]] : word_list_keys.priconneyomi });
             }
@@ -590,16 +587,14 @@ function build_all_choices()
     }
 }
 
+function get_first_character(phrase)
+{
+    return pinyin[phrase].h;
+}
+
 function get_last_character(phrase)
 {
-    let last_character = phrase[phrase.length - 1] === "ー" ? phrase[phrase.length - 2] : phrase[phrase.length - 1];
-    if (last_character === "ィ") { last_character = "イ"; }
-    if (last_character === "ょ") { last_character = "よ"; }
-    if (last_character === "ゃ") { last_character = "や"; }
-    if (last_character === "ュ") { last_character = "ユ"; }
-    if (last_character === "ゅ") { last_character = "ゆ"; }
-    if (last_character === "ャ") { last_character = "や"; }
-    return wanakana.toHiragana(last_character);
+    return pinyin[phrase].t;
 }
 
 function toggle_rush_mode()

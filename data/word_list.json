@@ -65,7 +65,7 @@
         "priconneyomi": ["龙肉"]
     },
     "moon": {
-        "futsuyomi": [" 月亮", "满月"],
+        "futsuyomi": ["月亮", "满月"],
         "urayomi": ["卫星", "露娜", "中秋节"],
         "priconneyomi": []
     },
@@ -132,7 +132,7 @@
     "tiger": {
         "futsuyomi": ["老虎"],
         "urayomi": ["野兽"],
-        "priconneyomi": ["茉莉的 憧憬"]
+        "priconneyomi": ["茉莉的憧憬"]
     },
     "rabbit": {
         "futsuyomi": ["兔子", "玩偶"],
@@ -216,7 +216,7 @@
     },
     "dog": {
         "futsuyomi": ["狗"],
-        "urayomi": ["灰 狼", "汪汪", "哈士奇"],
+        "urayomi": ["灰狼", "汪汪", "哈士奇"],
         "priconneyomi": []
     },
     "flag": {
@@ -457,7 +457,7 @@
     "misato": {
         "futsuyomi": ["美里"],
         "urayomi": [],
-        "priconneyomi": ["幼儿 园的老师"]
+        "priconneyomi": ["幼儿园的老师"]
     },
     "suzuna": {
         "futsuyomi": ["铃奈"],
@@ -467,7 +467,7 @@
     "kaori": {
         "futsuyomi": ["香织"],
         "urayomi": [],
-        "priconneyomi": ["琉 球空手道", "嗨呀"]
+        "priconneyomi": ["琉球空手道", "嗨呀"]
     },
     "io": {
         "futsuyomi": ["伊绪"],
@@ -572,7 +572,7 @@
     "makoto": {
         "futsuyomi": ["真琴"],
         "urayomi": [],
-        "priconneyomi": [" 优衣的总角之交"]
+        "priconneyomi": ["优衣的总角之交"]
     },
     "ilya": {
         "futsuyomi": ["伊莉亚"],
@@ -602,7 +602,7 @@
     "shizuru": {
         "futsuyomi": ["静流"],
         "urayomi": [],
-        "priconneyomi": ["是姐 姐哦"]
+        "priconneyomi": ["是姐姐哦"]
     },
     "misaki": {
         "futsuyomi": ["美咲"],
