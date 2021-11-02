@@ -270,6 +270,8 @@ function get_possible_words(phrase)
     let missing_phrase_map = get_missing_phrase_map();
     let npc_choices_map = get_npc_choice_map();
 
+    let possible_words_map = new Map();
+
     // FIRST CHARACTER OF A PHRASE THAT MATCHES IN HIRAGANA OR KATAKANA = POSSIBLE
     for (let [word_id, word_data] of word_list)
     {
@@ -301,13 +303,18 @@ function get_possible_words(phrase)
         }
 
         // DISPLAY POSSIBLE RESULTS
-        for (let i = 0 ; i < possible_words.length ; i++)
+        possible_words_map.set(word_id,possible_words);
+        /*for (let i = 0 ; i < possible_words.length ; i++)
         {
             // (word_id, {phrase : phrase_type})
             // phrase_type = futsuyomi | urayomi | priconneyomi ; determine color of character
             add_word_to_table_html(word_id, possible_words[i]);
-        }
+        }*/
     }
+    
+    table_html += "<tr class='border'>";
+    add_words_to_table_html(possible_words_map);
+    
     // CLOSE TABLE
     table_html += "</tr></tbody>";
     document.getElementById("selection-table").innerHTML = table_html;
@@ -319,20 +326,37 @@ function get_possible_words(phrase)
         console.log(get_colored_message(shiritori_game.sender_name, highlight_code("ん") + " was hit! Game Over!", message_status.INFO));
     }
 
-    function add_word_to_table_html(word_id, phrase_data)
+    function add_words_to_table_html(possible_words_map)
     {
-        // ADD TABLE ROW IF FIRST WORD
-        if (counter === 0)
+        let word_infos = [];
+        for (let [word_id, possible_words] of possible_words_map)
         {
-            table_html += "<tr class='border'>";
+            for (let i = 0 ; i < possible_words.length ; i++)
+            {
+                word_infos.push(get_word_info(word_id,possible_words[i]));
+            }
         }
-
-        // CLOSE TABLE ROW AND START NEW IF LIMIT HAS BEEN REACHED
-        if (counter % shiritori_game.max_words_per_row === 0 && counter !== 0)
+        word_infos.sort(function(a, b){return a.choices - b.choices});
+        word_infos.reverse(); 
+        for (let i = 0 ; i < word_infos.length ; i++)
         {
-            table_html += "</tr><tr>";
+            let html = word_infos[i].html;
+            if (counter === 0)
+            {
+                table_html += "<tr class='border'>";
+            }
+            if (counter % shiritori_game.max_words_per_row === 0 && counter !== 0)
+            {
+                table_html += "</tr><tr>";
+            }
+            table_html += html;
+            counter++;
         }
+    }
 
+    function get_word_info(word_id, phrase_data)
+    {
+        let word_html = "";
         let phrase = Object.keys(phrase_data)[0];
         let phrase_type = phrase_data[phrase];
         let is_word_already_collected = shiritori_game.collected_words.includes(word_id + ";" + phrase + ";" + phrase_type);
@@ -344,6 +368,7 @@ function get_possible_words(phrase)
         let additional_title_text = "";
         let last_character = get_last_character(phrase);
         let kaya_new_phrases = missing_phrase_map.get(last_character);
+        let choices = 0;
         if (!is_player_turn)
         {
             // PHRASE IS NOT A PRICONNEYOMI
@@ -389,6 +414,7 @@ function get_possible_words(phrase)
                 if (missing_phrases.length > 0)
                 {
                     user_can_select_new_phrase = true;
+                    choices++;
                     user_phrases_string += "  - " + kaya_phrase + " -> (" + missing_phrases.length + " New Choices)\n";
                 }
                 if ((kaya_new_phrases.includes(kaya_phrase) && missing_phrases.length > 0))
@@ -421,14 +447,14 @@ function get_possible_words(phrase)
         //console.log(phrase + "\n" + additional_title_text);
 
         // INSERT DATA
-        table_html += "<th class='word-image'>";
-        table_html += "<button id='" + word_id + "_" + phrase + "' class='pointer-cursor word-selection-button" + (is_word_already_collected ? " low-opacity" : "") + "' onclick='shiritori(\"" + word_id + "\", \"" + phrase + "\", \"" + phrase_type + "\")'>";
-        table_html += "<img class='notranslate " + color_highlight + phrase_highlight + " word-image' title='" + phrase + "\n" + additional_title_text + "' src='images/game/" + word_id + ".png' alt=''>";
-        table_html += "<img class='notranslate " + phrase_highlight + "character-circle' src='images/webpage/" + "character_circle" + ".png' alt=''>";
-        table_html += "<div class='notranslate end-character webpage-text " + phrase_type + "'>" + get_last_character(phrase) + "</div>";
-        table_html += "</button></th>";
+        word_html += "<th class='word-image'>";
+        word_html += "<button id='" + word_id + "_" + phrase + "' class='pointer-cursor word-selection-button" + (is_word_already_collected ? " low-opacity" : "") + "' onclick='shiritori(\"" + word_id + "\", \"" + phrase + "\", \"" + phrase_type + "\")'>";
+        word_html += "<img class='notranslate " + color_highlight + phrase_highlight + " word-image' title='" + phrase + "\n" + additional_title_text + "' src='images/game/" + word_id + ".png' alt=''>";
+        word_html += "<img class='notranslate " + phrase_highlight + "character-circle' src='images/webpage/" + "character_circle" + ".png' alt=''>";
+        word_html += "<div class='notranslate end-character webpage-text " + phrase_type + "'>" + get_last_character(phrase) + "</div>";
+        word_html += "</button></th>";
 
-        counter++;
+        return {"choices":choices,"html":word_html}
     }
 }
 
