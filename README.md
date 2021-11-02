@@ -1,6 +1,6 @@
-# Princess Connect! Re:Dive Shiritori Helper<br>(priconne-shiritori)
+# Princess Connect! Re:Dive Shiritori Helper<br>(简中服版)
 
-URL: <https://expugn.github.io/priconne-shiritori/>
+URL: <https://paulzzh.github.io/priconne-shiritori-cn/>
 
 ## Information
 This is a tool that helps non-Japanese speakers complete the 
@@ -22,7 +22,7 @@ Completing this new catalog (100%) will grant the following title as a reward:<b
 ![Word Master II](https://raw.githubusercontent.com/Expugn/priconne-shiritori/master/images/webpage/icon_emblem_11001131.png)
 
 ## How to Use
-1. Open the tool URL in a web browser (<https://expugn.github.io/priconne-shiritori/>)
+1. Open the tool URL in a web browser (<https://paulzzh.github.io/priconne-shiritori-cn/>)
 2. If you have existing progress already...
 
     1. Click `Open Word List`
