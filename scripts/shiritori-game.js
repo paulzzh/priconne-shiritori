@@ -368,7 +368,8 @@ function get_possible_words(phrase)
         let additional_title_text = "";
         let last_character = get_last_character(phrase);
         let kaya_new_phrases = missing_phrase_map.get(last_character);
-        let choices = 0;
+        let pchoices = 0;
+        let kchoices = 0;
         if (!is_player_turn)
         {
             // PHRASE IS NOT A PRICONNEYOMI
@@ -414,7 +415,8 @@ function get_possible_words(phrase)
                 if (missing_phrases.length > 0)
                 {
                     user_can_select_new_phrase = true;
-                    choices+=missing_phrases.length;
+                    pchoices+=missing_phrases.length/result_map.get(lc).length;
+                    kchoices+=1/npc_choices_map.get(last_character).length;
                     user_phrases_string += "  - " + kaya_phrase + " -> (" + missing_phrases.length + " New Choices)\n";
                 }
                 if ((kaya_new_phrases.includes(kaya_phrase) && missing_phrases.length > 0))
@@ -440,7 +442,7 @@ function get_possible_words(phrase)
 
             // ADDITIONAL TITLE TEXT
             additional_title_text += (kaya_can_select_new_phrase ? "\nKaya has a chance of choosing a new phrase!\n" + kaya_phrases_string : "") +
-                (user_can_select_new_phrase ? "\nPlayer has a chance of choosing a new phrase!\n" + user_phrases_string : "") +
+                (user_can_select_new_phrase ? "\nPlayer has a chance of choosing a new phrase!\nChance:" + pchoices*kchoices + "\n" + user_phrases_string : "") +
                 (kaya_and_user_can_select_new_phrases ? "\nKaya and Player has a chance of choosing new phrases!\n" + kaya_and_user_phrases_string : "");
         }
 
@@ -454,7 +456,7 @@ function get_possible_words(phrase)
         word_html += "<div class='notranslate end-character webpage-text " + phrase_type + "'>" + get_last_character(phrase) + "</div>";
         word_html += "</button></th>";
 
-        return {"choices":choices,"html":word_html}
+        return {"choices":pchoices*kchoices,"html":word_html}
     }
 }
 
