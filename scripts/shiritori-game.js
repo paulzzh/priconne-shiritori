@@ -414,7 +414,7 @@ function get_possible_words(phrase)
                 if (missing_phrases.length > 0)
                 {
                     user_can_select_new_phrase = true;
-                    choices++;
+                    choices+=missing_phrases.length;
                     user_phrases_string += "  - " + kaya_phrase + " -> (" + missing_phrases.length + " New Choices)\n";
                 }
                 if ((kaya_new_phrases.includes(kaya_phrase) && missing_phrases.length > 0))
