@@ -3,38 +3,20 @@
 <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 
-    <link rel="icon" href="images/game/yuni.png">
+    <link rel="icon" href="images/game/ninon.png">
 
-    <title>Princess Connect! Re:Dive - Shiritori Helper</title>
-    <meta name="title" content="Princess Connect! Re:Dive - Shiritori Helper"/>
+    <title>公主连结R - 词语接龙</title>
+    <meta name="title" content="公主连结R - 词语接龙"/>
 
     <!-- META DATA -->
-    <meta name="description" content="Help for the Shiritori Minigame ('Great Battle! Shiritori Dragons') introduced in the 'Dragon Explorers' event in 'Princess Connect! Re:Dive' (プリンセスコネクト! Re:Dive).">
+    <meta name="description" content="公主连结ReDive龙之探索者小游戏帮助工具">
     <meta name="author" content="S'pugn">
-    <meta name="keywords" content="Princess Connect Re:Dive, プリンセスコネクト! Re:Dive, Shiritori, S'pugn">
-
-    <!-- OPEN GRAPH / FACEBOOK META DATA -->
-    <meta property="og:title" content="Princess Connect! Re:Dive - Shiritori Helper"/>
-    <meta property="og:description" content="Help for the Shiritori Minigame ('Great Battle! Shiritori Dragons') introduced in the 'Dragon Explorers' event in 'Princess Connect! Re:Dive' (プリンセスコネクト! Re:Dive)."/>
-    <meta property="og:type" content="website"/>
-    <meta property="og:image" content="https://raw.githubusercontent.com/Expugn/priconne-shiritori/master/images/game/yuni.png"/>
-    <meta property="og:image:width" content="64"/>
-    <meta property="og:image:height" content="64"/>
-    <meta property="og:url" content="https://expugn.github.io/priconne-shiritori/"/>
-    <meta property="og:locale" content="en_US"/>
-
-    <!-- TWITTER META DATA -->
-    <meta name="twitter:card" content="summary"/>
-    <meta name="twitter:site" content="@eSpugn"/>
-    <meta name="twitter:creator" content="@eSpugn"/>
-    <meta name="twitter:title" content="Princess Connect! Re:Dive - Shiritori Helper"/>
-    <meta name="twitter:description" content="Help for the Shiritori Minigame ('Great Battle! Shiritori Dragons') introduced in the 'Dragon Explorers' event in 'Princess Connect! Re:Dive' (プリンセスコネクト! Re:Dive)."/>
+    <meta name="keywords" content="公主连结,公主连结ReDive,词语接龙,龙之探索者,小游戏">
 
     <!-- SCRIPTS -->
     <script src="scripts/jquery-3.4.1.min.js"></script>
     <script src="scripts/treant/vendor/raphael.js"></script>
     <script src="scripts/treant/Treant.js"></script>
-    <script src="scripts/wanakana.min.js"></script>
     <script src="scripts/pinyin.js"></script>
     <script src="scripts/console.js"></script>
     <script src="scripts/read-word-list-json.js"></script>
@@ -53,7 +35,7 @@
 <!-- TITLE -->
 <div>
     <h1 class="title webpage-text">Princess Connect! Re:Dive</h1>
-    <h2 class="title webpage-text">Shiritori Helper</h2>
+    <h2 class="title webpage-text">词语接龙帮助工具</h2>
 </div>
 
 <hr>
@@ -63,9 +45,9 @@
     <!-- SETTINGS AREA -->
     <div>
         <br>
-        <button onclick="open_word_list()">Open Word List</button><button style="margin-left: 30px" onclick="show_tips()">Show Tips</button>
+        <button onclick="open_word_list()">打开词条列表</button><button style="margin-left: 30px" onclick="show_tips()">不会用？点我</button>
         <br><br>
-        <button onclick="reset_game()">Reset Game</button>
+        <button onclick="reset_game()">重新开始游戏</button>
         <br><br>
     </div>
 
@@ -73,8 +55,8 @@
 
     <!-- GAME STATUS AREA -->
     <div>
-        <h2 id="turn-text" class="webpage-text centerText" hidden>Turn <span id="turn-counter">0</span></h2>
-        <h3 id="game-start-tip" class="webpage-text centerText">Select the card <span style="color:gold">Kaya</span> selected to begin.</h3>
+        <h2 id="turn-text" class="webpage-text centerText" hidden>回合 <span id="turn-counter">0</span></h2>
+        <h3 id="game-start-tip" class="webpage-text centerText">请点击<span style="color:gold">嘉夜</span>选择的初始卡片</h3>
         <div id="latest-selection" class="webpage-text centerText" hidden>
             <img id="latest-selection-image" src="images/game/placeholder.png" alt=""><br>
             <img class="latest-selection-character-circle" src="images/webpage/character_circle.png" alt=""><br>
@@ -82,16 +64,16 @@
             <div id="latest-selection-text" class="centerText" style="color: gold;">phrase_text</div>
         </div>
         <div class="centerText">
-            <button id="undo-button" onclick="undo_phrase()" disabled hidden>Made a mistake? Undo!</button>
+            <button id="undo-button" onclick="undo_phrase()" disabled hidden>手滑了？点我撤销！</button>
         </div>
-        <h3 id="your-turn-text" class="webpage-text centerText" hidden><span style="color:gold">Your turn.</span><br>Select the option you chose in game.</h3>
-        <h3 id="opponent-turn-text" class="webpage-text centerText" hidden><span style="color:gold">Kaya</span>'s turn.<br>Select the card that <span style="color:gold">Kaya</span> selected.</h3>
+        <h3 id="your-turn-text" class="webpage-text centerText" hidden><span style="color:gold">你的回合</span><br>请点击你在游戏中选择的卡片</h3>
+        <h3 id="opponent-turn-text" class="webpage-text centerText" hidden><span style="color:gold">嘉夜</span>的回合<br>请点击<span style="color:gold">嘉夜</span>选择的卡片</h3>
         <h3 id="rush-mode-button-text" class="centerText" hidden>
             <button id="rush-mode-button" class="rush-mode-button low-opacity" onclick="toggle_rush_mode()">
                 <img class="rush-mode-button" title="Toggle Rush Mode" src="images/webpage/rush.png" alt="">
             </button>
         </h3>
-        <h3 id="rush-mode-text" class="webpage-text centerText" hidden><span style="color:gold">Rush Mode</span> activated.<br>Select the cards that you collected during rush mode.<br><br><span style="color:red">All selections will be saved to your word list.</span></h3>
+        <h3 id="rush-mode-text" class="webpage-text centerText" hidden><span style="color:gold">冲刺模式</span>触发<br>请点击你在冲刺模式中收集的全部卡片<br><br><span style="color:red">你选择的卡片都会被保存到词条列表</span></h3>
     </div>
 
     <hr>
@@ -108,34 +90,34 @@
 <!-- WORD LIST DIV -->
 <div id="word-list-div" hidden>
     <br>
-    <button onclick="close_word_list()">Close Word List</button><button style="margin-left: 30px" onclick="toggle_word_search()">Word Search</button>
+    <button onclick="close_word_list()">关闭词条列表</button><button style="margin-left: 30px" onclick="toggle_word_search()">搜索词条路径(树状图)</button>
     <br><br>
-    <div class="futsuyomi webpage-text">フツウヨミ (<span id="futsuyomi-count">0</span>/<span id="futsuyomi-total-count">0</span>)</div>
+    <div class="futsuyomi webpage-text">普通读法 (<span id="futsuyomi-count">0</span>/<span id="futsuyomi-total-count">0</span>)</div>
     <br>
-    <div class="urayomi webpage-text">ウラヨミ (<span id="urayomi-count">0</span>/<span id="urayomi-total-count">0</span>)</div>
+    <div class="urayomi webpage-text">隐藏读法 (<span id="urayomi-count">0</span>/<span id="urayomi-total-count">0</span>)</div>
     <br>
-    <div class="priconneyomi webpage-text">プリコネヨミ (<span id="priconneyomi-count">0</span>/<span id="priconneyomi-total-count">0</span>)</div>
+    <div class="priconneyomi webpage-text">公主读法 (<span id="priconneyomi-count">0</span>/<span id="priconneyomi-total-count">0</span>)</div>
     <br>
-    <button onclick="reverse_phrase()">Inverse</button><button style="margin-left: 30px" onclick="reset_data()">Reset Data</button>
+    <button onclick="reverse_phrase()">反选</button><button style="margin-left: 30px" onclick="reset_data()">重置数据</button>
     <br><br>
     <div id="word-list-contents">
-        <h3 class="webpage-text centerText">Progress can be added or removed by <span style="color: gold">clicking</span> on the phrase.</h3>
+        <h3 class="webpage-text centerText">可以通过<span style="color: gold">点击</span>条目增减已收集的词条</h3>
         <br>
         <div id="word-list"></div>
     </div>
-    <h3 id="word-list-hidden-warning" class="webpage-text centerText" hidden>Word list progress cannot be modified while a game is in progress.<br><span style="color: gold">Reset the game to make the word list visible again.</span></h3>
+    <h3 id="word-list-hidden-warning" class="webpage-text centerText" hidden>词条无法在游戏时被更改<br><span style="color: gold">重新开始游戏让词条可见</span></h3>
 </div>
 
 <!-- WORD SEARCH DIV -->
 <div id="word-search-div" hidden>
     <br>
-    <button onclick="toggle_word_search()">Close Word Search</button><button id="reset-word-search-button" style="margin-left: 30px" onclick="reset_word_search()" hidden>Reset Word Search</button>
+    <button onclick="toggle_word_search()">关闭词条搜索</button><button id="reset-word-search-button" style="margin-left: 30px" onclick="reset_word_search()" hidden>重置词条搜索</button>
     <br><br>
-    <label for="low-opacity-word-search-checkbox" class="webpage-text">Mark Obtained Words? : </label>
+    <label for="low-opacity-word-search-checkbox" class="webpage-text">标记已获得词条? : </label>
     <input id="low-opacity-word-search-checkbox"
            type="checkbox"
            onchange="build_phrase_list()">
-    <label for="result-search-checkbox" class="webpage-text" style="margin-left: 30px">Find Resulting Words? : </label>
+    <label for="result-search-checkbox" class="webpage-text" style="margin-left: 30px">寻找后续词条? : </label>
     <input id="result-search-checkbox"
            type="checkbox"
            onchange="create_table(_phrase_table_js.word_searched)">
@@ -153,62 +135,62 @@
 <!-- TIPS DIV -->
 <div id="tips-div" hidden>
     <br>
-    <button onclick="hide_tips()">Hide Tips</button>
+    <button onclick="hide_tips()">关闭提示</button>
     <br><br>
 
     <hr>
-    <h2 class="webpage-text centerText">Card Highlighting</h2>
+    <h2 class="webpage-text centerText">卡片高亮</h2>
     <p class="webpage-text">
-        Cards are highlighted based off the chance you can collect a new phrase.<br><br>
-        <img src="images/game/yuni.png" style="max-height: 64px" class="priconneyomi" alt=""><br>
-        A <span style="color: rgb(255, 127, 170); font-weight: bold">red</span> color surrounding the card means that <span style="color: gold">Kaya</span> and the Player has a chance of both choosing a new phrase, depending on <span style="color: gold">Kaya</span>'s choice.<br>
-        <span style="color: gold; font-weight: bold">This should be the highest priority card to select if there are no new cards available.</span>
+        卡片高亮取决于有机会收集新词条<br><br>
+        <img src="images/game/ninon.png" style="max-height: 64px" class="priconneyomi" alt=""><br>
+        <span style="color: rgb(255, 127, 170); font-weight: bold">红色</span>边框意味着<span style="color: gold">嘉夜</span>和玩家都有机会选择新词条，取决于<span style="color: gold">嘉夜</span>的选择<br>
+        <span style="color: gold; font-weight: bold">如果场上没有未收集词条的话，这应该是优先级最高的选择</span>
         <br><br>
-        <img src="images/game/yuni.png" style="max-height: 64px" class="futsuyomi" alt=""><br>
-        A <span style="color: rgb(115, 175, 85); font-weight: bold">green</span> color surrounding the card means that <span style="color: gold">Kaya</span> has a chance of choosing a new phrase.
+        <img src="images/game/ninon.png" style="max-height: 64px" class="futsuyomi" alt=""><br>
+        <span style="color: rgb(115, 175, 85); font-weight: bold">绿色</span>边框意味着<span style="color: gold">嘉夜</span>有机会选择新词条
         <br><br>
-        <img src="images/game/yuni.png" style="max-height: 64px" class="urayomi" alt=""><br>
-        A <span style="color: rgb(46, 169, 255); font-weight: bold">blue</span> color surrounding the card means that the Player has a chance of choosing a new phrase on their next turn, depending on <span style="color: gold">Kaya</span>'s choice.
+        <img src="images/game/ninon.png" style="max-height: 64px" class="urayomi" alt=""><br>
+        <span style="color: rgb(46, 169, 255); font-weight: bold">蓝色</span>边框意味着玩家有机会在下个回合选择新词条，取决于<span style="color: gold">嘉夜</span>的选择
         <br><br>
-        <img src="images/game/yuni.png" style="max-height: 64px" class="gold-outline" alt=""><br>
-        On <span style="color: gold">Kaya</span>'s turn, cards that are highlighted <span style="color: gold; font-weight: bold">gold</span> have new phrases for the Player if <span style="color: gold">Kaya</span> selects them.
+        <img src="images/game/ninon.png" style="max-height: 64px" class="gold-outline" alt=""><br>
+        在<span style="color: gold">嘉夜</span>的回合，卡片边框高亮为<span style="color: gold; font-weight: bold">金色</span>意味着如果<span style="color: gold">嘉夜</span>选择他们，玩家在下个回合有机会选择新词条
         <br><br>
-        <img src="images/game/yuni.png" style="max-height: 64px" alt=""><br>
-        No coloring means that there is no chance <span style="color: gold">Kaya</span> or the Player will obtain a new phrase by the Player's next turn.
+        <img src="images/game/ninon.png" style="max-height: 64px" alt=""><br>
+        没有颜色意味着<span style="color: gold">嘉夜</span>和玩家在下个回合都没有机会选择新词条
         <br><br><br>
-        Only one color will highlight the card, but there can be other options available.<br>
-        You can see these options by hovering over the card.
+        卡片只会被高亮为一种颜色, 但是可能会有其他选择<br>
+        你可以把鼠标悬停在卡片上来查看这些选项
         <br><br>
-        Cards will ONLY be highlighted <span style="color: rgb(255, 127, 170); font-weight: bold">Red</span>, <span style="color: rgb(115, 175, 85); font-weight: bold">Green</span>, or <span style="color: rgb(46, 169, 255); font-weight: bold">Blue</span> on the Player's turn.<br>
-        Cards will ONLY be highlighted <span style="color: gold; font-weight: bold">Gold</span> on <span style="color: gold">Kaya</span>'s turn.
+        卡片在玩家的回合只会被高亮为<span style="color: rgb(255, 127, 170); font-weight: bold">红色</span>,<span style="color: rgb(115, 175, 85); font-weight: bold">绿色</span>,或<span style="color: rgb(46, 169, 255); font-weight: bold">蓝色</span><br>
+        卡片在<span style="color: gold">嘉夜</span>的回合只会被高亮为<span style="color: gold; font-weight: bold">金色</span>
         <br><br>
-        Color Priority:<br>
-        <span style="color: rgb(255, 127, 170); font-weight: bold">Red Color</span> > <span style="color: rgb(115, 175, 85); font-weight: bold">Green Color</span> > <span style="color: rgb(46, 169, 255); font-weight: bold">Blue Color</span>
+        颜色优先级:<br>
+        <span style="color: rgb(255, 127, 170); font-weight: bold">红色</span> > <span style="color: rgb(115, 175, 85); font-weight: bold">绿色</span> > <span style="color: rgb(46, 169, 255); font-weight: bold">蓝色</span>
     </p>
 
     <hr>
 
-    <h2 class="webpage-text centerText">Image Styling Meanings</h2>
+    <h2 class="webpage-text centerText">卡片样式</h2>
     <p class="webpage-text">
         Cards may have different styling to help you get more information out of them.<br><br>
-        <img src="images/game/yuni.png" style="max-height: 64px" class="low-opacity" alt=""><br>
-        A card with low opacity means that you have already collected the phrase it has.<br>
-        Clicking on the card will not help you fill up your word album as a result.
+        <img src="images/game/ninon.png" style="max-height: 64px" class="low-opacity" alt=""><br>
+        被低透明度的卡片 意味着你已经收集了这个词条<br>
+        选择这个卡片并不能帮助你完成图鉴
         <br><br>
-        <img src="images/game/yuni.png" style="max-height: 64px" class="grayscale" alt=""><br>
-        A card that is grayscale means that this card will not normally be available.<br>
-        Cards can only be grayscale if it is <span style="color: gold">Kaya</span>'s turn and if the card is a "<span style="color: rgb(255, 127, 170); font-weight: bold">Priconneyomi (プリコネヨミ)</span>" phrase.
+        <img src="images/game/ninon.png" style="max-height: 64px" class="grayscale" alt=""><br>
+        被灰度化的卡片 意味着这个卡片不会出现<br>
+        卡片只会在<span style="color: gold">嘉夜</span>的回合被灰度化，因为这是一个"<span style="color: rgb(255, 127, 170); font-weight: bold">公主 (プリコネヨミ)</span>" 读法
         <br>
-        <span style="color: gold">Kaya</span> will NEVER use a "<span style="color: rgb(255, 127, 170); font-weight: bold">Priconneyomi</span>" card, so if a "<span style="color: rgb(255, 127, 170); font-weight: bold">Priconneyomi</span>" is available, you should prioritize using that card if possible.
+        <span style="color: gold">嘉夜</span>永远不会接龙"<span style="color: rgb(255, 127, 170); font-weight: bold">公主</span>"读法
     </p>
 
     <hr>
 
-    <h2 class="webpage-text centerText">Tooltip (Title) Information</h2>
+    <h2 class="webpage-text centerText">提示信息</h2>
     <p class="webpage-text">
-        While the game is in progress, the Player can hover over a card to reveal more information about it.
+        游戏进行时，玩家可以把鼠标悬停在卡片来查看这些信息
         <br><br>
-        <img src="images/game/yuni.png" style="max-height: 64px" alt="" title="" onload="this.title = 'ユニ\n\n'+
+        <img src="images/game/ninon.png" style="max-height: 64px" alt="" title="" onload="this.title = 'ユニ\n\n'+
             'Kaya has a chance of choosing a new phrase!\n'+
             '  - rabbit;にんぎよう;futsuyomi\n'+
             '  - ninon;ニノン;futsuyomi\n'+
@@ -221,20 +203,20 @@
             'Kaya and Player has a chance of choosing new phrases!\n'+
             '  - rabbit;にんぎよう;futsuyomi -> (14 New Choices)'">
         <br>
-        <span style="color: gold">Hover your cursor over this card to see some example information.</span>
+        <span style="color: gold">把鼠标放在这个图标上来看些例子</span>
         <br><br>
-        You can find the card's phrase on the top.
+        最上方是词条名称
         <br><br>
-        If the card is highlighted, additional information will be displayed.
+        如果卡片被高亮，会显示更多信息
         <br><br>
-        Cards capable of obtaining a <span style="color: rgb(115, 175, 85); font-weight: bold">green</span> highlight will display the available phrases <span style="color: gold">Kaya</span> will select from.
+        <span style="color: rgb(115, 175, 85); font-weight: bold">绿框</span>的卡片会显示<span style="color: gold">嘉夜</span>能选择的新词条
         <br><br>
-        Cards capable of obtaining a <span style="color: rgb(46, 169, 255); font-weight: bold">blue</span> highlight will display the phrase(s) <span style="color: gold">Kaya</span> can choose from to reveal the new phrases the Player can choose from.<br>
-        The amount of possible new choices will also be displayed.
+        <span style="color: rgb(46, 169, 255); font-weight: bold">蓝框</span>的卡片会显示<span style="color: gold">嘉夜</span>选择哪些卡片后，玩家能选择新词条<br>
+        也会显示玩家有可能拿到几个新词条
         <br><br>
-        Cards capable of obtaining a <span style="color: rgb(255, 127, 170); font-weight: bold">red</span> highlight will display the phrase <span style="color: gold">Kaya</span> needs to select as well as the amount of new phrases the Player can choose from.
+         <span style="color: rgb(255, 127, 170); font-weight: bold">红框</span>的卡片会同时显示以上所有
         <br><br>
-        For the best efficiency, it would be wise to pause the minigame and consider your choices for the best chance of getting a new phrase.
+        为了最高效率，你需要暂停游戏来选择能拿到新词条的最高概率的答案
     </p>
 
 </div>
@@ -249,7 +231,7 @@
 </body>
 
 <footer>
-    <p class="footer webpage-text">Made With <span style="color:#ff4d4d">❤</span> By S'pugn <img class="footer" src="images/webpage/HAhaa.png" alt=""></p>
+    <p class="footer webpage-text">Made With <span style="color:#ff4d4d">❤</span> By S'pugn. Modified by Paulzzh.<img class="footer" src="images/webpage/HAhaa.png" alt=""></p>
     <p class="footer">
         <a href="https://github.com/paulzzh/priconne-shiritori-cn" target="_blank" style="text-decoration: none;">
             <img src="images/webpage/GitHub-Mark-Light-32px.png" style="text-decoration: none;" alt="GitHub">
