@@ -747,6 +747,7 @@ function reverse_phrase()
             }
         }
     }
+    location.reload();
 }
 
 function toggle_phrase(word_id, phrase, phrase_type)
