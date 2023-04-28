@@ -750,6 +750,46 @@ function reverse_phrase()
     location.reload();
 }
 
+function finish_v1()
+{
+    for (let [word_id, word_data] of word_list)
+    {
+        if (word_id == "robot") {
+            break;
+        }
+        let futsuyomi_array = word_data.get(word_list_keys.futsuyomi);
+        let urayomi_array = word_data.get(word_list_keys.urayomi);
+        let priconneyomi_array = word_data.get(word_list_keys.priconneyomi);
+        // FUTSUYOMI PHRASES
+        if (futsuyomi_array.length > 0)
+        {
+            for (let i = 0 ; i < futsuyomi_array.length ; i++)
+            {
+                add_word_to_collection(word_id, futsuyomi_array[i], "futsuyomi");
+            }
+        }
+
+        // URAYOMI PHRASES
+        if (urayomi_array.length > 0)
+        {
+            for (let i = 0 ; i < urayomi_array.length ; i++)
+            {
+                add_word_to_collection(word_id, urayomi_array[i], "urayomi");
+            }
+        }
+
+        // PRICONNEYOMI PHRASES
+        if (priconneyomi_array.length > 0)
+        {
+            for (let i = 0 ; i < priconneyomi_array.length ; i++)
+            {
+                add_word_to_collection(word_id, priconneyomi_array[i], "priconneyomi");
+            }
+        }
+    }
+    location.reload();
+}
+
 function toggle_phrase(word_id, phrase, phrase_type)
 {
     let word = word_id + ";" + phrase + ";" + phrase_type;
