@@ -708,5 +708,295 @@
         "futsuyomi": ["优妮"],
         "urayomi": [],
         "priconneyomi": ["家里蹲", "圣特蕾莎女子学院的危险分子"]
+    },
+    "robot": {
+        "futsuyomi": ["机器人"],
+        "urayomi": ["魔法机械"],
+        "priconneyomi": ["好朋友X", "优妮的杰作"]
+    },
+    "mushroom": {
+        "futsuyomi": ["蘑菇", "有毒蘑菇"],
+        "urayomi": ["白杆杆红伞伞"],
+        "priconneyomi": ["红菇"]
+    },
+    "lion": {
+        "futsuyomi": ["雄狮"],
+        "urayomi": ["百兽之王", "舞狮", "野兽"],
+        "priconneyomi": ["炎吼狮王"]
+    },
+    "pencil": {
+        "futsuyomi": ["铅笔", "彩铅"],
+        "urayomi": ["石墨", "文具"],
+        "priconneyomi": ["杀手笔剑"]
+    },
+    "sun": {
+        "futsuyomi": ["太阳"],
+        "urayomi": ["日光", "晴天"],
+        "priconneyomi": []
+    },
+    "airship": {
+        "futsuyomi": ["飞艇"],
+        "urayomi": ["骑空艇", "翱翔天空"],
+        "priconneyomi": ["莫妮卡的舰队"]
+    },
+    "rose": {
+        "futsuyomi": ["玫瑰", "荆棘", "花朵"],
+        "urayomi": ["带刺的花"],
+        "priconneyomi": []
+    },
+    "sushi": {
+        "futsuyomi": ["寿司"],
+        "urayomi": [],
+        "priconneyomi": ["金枪鱼寿司", "大间的美食"]
+    },
+    "mirror": {
+        "futsuyomi": ["镜子"],
+        "urayomi": [],
+        "priconneyomi": ["雪的爱用品"]
+    },
+    "tiara": {
+        "futsuyomi": ["皇冠"],
+        "urayomi": ["饰品", "头饰"],
+        "priconneyomi": ["佩可莉姆的皇冠"]
+    },
+    "oden": {
+        "futsuyomi": ["关东煮", "炖菜", "煮锅"],
+        "urayomi": [],
+        "priconneyomi": ["龙尾关东煮"]
+    },
+    "lightbulb": {
+        "futsuyomi": ["灯泡"],
+        "urayomi": ["白炽灯", "霹咔霹咔"],
+        "priconneyomi": ["香澄的灵感"]
+    },
+    "cloud": {
+        "futsuyomi": ["云朵"],
+        "urayomi": ["积雨云", "阴天", "棉花糖"],
+        "priconneyomi": ["雷雷的印象"]
+    },
+    "axe": {
+        "futsuyomi": ["斧头", "石斧"],
+        "urayomi": [],
+        "priconneyomi": ["巨型哥布林的武器"]
+    },
+    "onsen": {
+        "futsuyomi": ["温泉", "露天浴场"],
+        "urayomi": ["生命恢复"],
+        "priconneyomi": ["克莉丝提娜矿泉修养地"]
+    },
+    "pillow": {
+        "futsuyomi": ["枕头", "抱枕"],
+        "urayomi": ["寝具"],
+        "priconneyomi": ["初音的珍爱品"]
+    },
+    "magazine": {
+        "futsuyomi": ["期刊"],
+        "urayomi": ["杂志", "漫画"],
+        "priconneyomi": ["铃奈的写真集"]
+    },
+    "drum": {
+        "futsuyomi": ["太鼓", "小太鼓"],
+        "urayomi": ["打击乐器"],
+        "priconneyomi": []
+    },
+    "constellation": {
+        "futsuyomi": ["星座", "银河"],
+        "urayomi": ["夜空"],
+        "priconneyomi": ["饭团座"]
+    },
+    "tomato": {
+        "futsuyomi": ["番茄", "小番茄"],
+        "urayomi": ["西红柿大战"],
+        "priconneyomi": []
+    },
+    "field": {
+        "futsuyomi": ["草地", "平原", "视窗操作系统"],
+        "urayomi": [],
+        "priconneyomi": []
+    },
+    "rainbow": {
+        "futsuyomi": ["彩虹", "色彩", "七彩"],
+        "urayomi": ["天空之桥", "雨后"],
+        "priconneyomi": []
+    },
+    "shaved_ice": {
+        "futsuyomi": ["刨冰", "冰沙"],
+        "urayomi": ["冷饮", "夏日庆典"],
+        "priconneyomi": []
+    },
+    "butterfly": {
+        "futsuyomi": ["蝴蝶"],
+        "urayomi": ["妖精", "花丛", "昆虫", "凤蝶", "蓝凤蝶"],
+        "priconneyomi": []
+    },
+    "tower": {
+        "futsuyomi": ["石塔"],
+        "urayomi": ["防御塔", "灯塔", "瞭望点", "大楼"],
+        "priconneyomi": []
+    },
+    "ice_cream": {
+        "futsuyomi": ["冰淇淋"],
+        "urayomi": ["薄荷巧克力冰淇淋", "甜筒"],
+        "priconneyomi": ["雪菲喜欢的东西"]
+    },
+    "donut": {
+        "futsuyomi": ["美式甜甜圈"],
+        "urayomi": ["零食", "巧克力甜甜圈"],
+        "priconneyomi": []
+    },
+    "ticket": {
+        "futsuyomi": ["兑换券", "门票"],
+        "urayomi": [],
+        "priconneyomi": ["扫荡券"]
+    },
+    "swim_ring": {
+        "futsuyomi": ["泳圈"],
+        "urayomi": ["救生圈", "旱鸭子"],
+        "priconneyomi": ["凯露的救生圈"]
+    },
+    "sunglasses": {
+        "futsuyomi": ["太阳眼镜"],
+        "urayomi": ["冲浪", "墨镜", "夏威夷"],
+        "priconneyomi": []
+    },
+    "shuriken": {
+        "futsuyomi": ["手里剑"],
+        "urayomi": ["远程武器", "忍者"],
+        "priconneyomi": ["大江户的特产"]
+    },
+    "house": {
+        "futsuyomi": ["住宅", "家庭"],
+        "urayomi": ["房子", "高级公寓"],
+        "priconneyomi": ["公会之家"]
+    },
+    "onigiri": {
+        "futsuyomi": ["手握饭团"],
+        "urayomi": ["便当"],
+        "priconneyomi": ["无限饭团", "佩可莉姆喜欢的东西"]
+    },
+    "green_pepper": {
+        "futsuyomi": ["青椒"],
+        "urayomi": ["彩椒", "绿色蔬菜"],
+        "priconneyomi": []
+    },
+    "chestnut": {
+        "futsuyomi": ["板栗"],
+        "urayomi": ["糖炒栗子", "带刺外壳", "刺猬"],
+        "priconneyomi": []
+    },
+    "sweet_potato": {
+        "futsuyomi": ["烤地瓜", "红薯"],
+        "urayomi": ["番薯", "秋日美食"],
+        "priconneyomi": []
+    },
+    "pepper": {
+        "futsuyomi": ["辣椒"],
+        "urayomi": ["草本植物", "干辣椒", "重庆火锅"],
+        "priconneyomi": ["类龙生物的火焰果"]
+    },
+    "shrimp": {
+        "futsuyomi": ["河虾"],
+        "urayomi": ["水生生物", "小龙虾", "海底捞"],
+        "priconneyomi": []
+    },
+    "skirt": {
+        "futsuyomi": ["裙子"],
+        "urayomi": ["短裙", "偶像"],
+        "priconneyomi": []
+    },
+    "pants": {
+        "futsuyomi": ["裤子"],
+        "urayomi": ["下装", "短裤"],
+        "priconneyomi": []
+    },
+    "airplane": {
+        "futsuyomi": ["飞机"],
+        "urayomi": ["螺旋桨", "遥控"],
+        "priconneyomi": []
+    },
+    "rain": {
+        "futsuyomi": ["雨滴"],
+        "urayomi": ["水循环", "阴雨天", "大雨"],
+        "priconneyomi": []
+    },
+    "rod": {
+        "futsuyomi": ["手杖"],
+        "urayomi": ["行动辅具", "魔杖"],
+        "priconneyomi": []
+    },
+    "spear": {
+        "futsuyomi": ["尖枪"],
+        "urayomi": ["长矛", "百兵之王"],
+        "priconneyomi": []
+    },
+    "helmet": {
+        "futsuyomi": ["头盔"],
+        "urayomi": ["铠甲", "盔甲"],
+        "priconneyomi": ["亡灵铠甲"]
+    },
+    "key": {
+        "futsuyomi": ["钥匙"],
+        "urayomi": ["门锁", "万用钥匙"],
+        "priconneyomi": []
+    },
+    "treasure_box": {
+        "futsuyomi": ["宝箱"],
+        "urayomi": ["金银财宝"],
+        "priconneyomi": ["稀有掉落"]
+    },
+    "dragon": {
+        "futsuyomi": ["巨龙"],
+        "urayomi": ["爬行动物", "传说生物"],
+        "priconneyomi": ["愤怒巨龙"]
+    },
+    "character": {
+        "futsuyomi": ["文字"],
+        "urayomi": ["好朋友社"],
+        "priconneyomi": ["切噜"]
+    },
+    "shackle": {
+        "futsuyomi": ["手铐"],
+        "urayomi": ["束缚用品"],
+        "priconneyomi": ["空花的最爱"]
+    },
+    "gate": {
+        "futsuyomi": ["大门"],
+        "urayomi": ["校门口", "铁门"],
+        "priconneyomi": ["圣特蕾莎女子学院"]
+    },
+    "sheffy": {
+        "futsuyomi": ["雪菲"],
+        "urayomi": [],
+        "priconneyomi": ["龙族少女"]
+    },
+    "karin": {
+        "futsuyomi": ["花凛"],
+        "urayomi": [],
+        "priconneyomi": ["公会管理协会", "向导", "可恶的眼镜女"]
+    },
+    "elder_cloud": {
+        "futsuyomi": ["雷云长老"],
+        "urayomi": [],
+        "priconneyomi": ["乌云"]
+    },
+    "sleepy_owl": {
+        "futsuyomi": ["嗜睡猫头鹰"],
+        "urayomi": [],
+        "priconneyomi": ["猫头鹰"]
+    },
+    "wappadanuki": {
+        "futsuyomi": ["淘气豆狸"],
+        "urayomi": [],
+        "priconneyomi": ["狸猫", "变身", "釜锅"]
+    },
+    "golem": {
+        "futsuyomi": ["魔像"],
+        "urayomi": [],
+        "priconneyomi": ["岩石魔物", "铃莓的好朋友"]
+    },
+    "mora": {
+        "futsuyomi": ["莫拉"],
+        "urayomi": [],
+        "priconneyomi": ["神秘魔法生物", "烦人的毛球"]
     }
 }
